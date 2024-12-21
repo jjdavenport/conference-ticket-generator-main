@@ -1,34 +1,29 @@
-import Logo from "./components/logo";
-import Title from "./components/title";
-import Footer from "./components/footer";
-import Form from "./components/form";
-import CompletedTitle from "./components/completed-title";
-import Ticket from "./components/ticket";
 import { useState } from "react";
-import { use } from "react";
+import PageOne from "./pages/page-one";
+import PageTwo from "./pages/page-two";
+import avatarImg from "./assets/image-avatar.jpg";
 
 function App() {
-  const [name, setName] = useState("Johnatan");
-  const [avatar, setAvatar] = useState("./");
+  const [name, setName] = useState("Johnatan Kristof");
+  const [email, setEmail] = useState("johnatan@email.com");
+  const [avatar, setAvatar] = useState(avatarImg);
   const [username, setUsername] = useState("johnatankristof");
   const [number, setNumber] = useState(1);
+  const [valid, setValid] = useState(false);
+  const img = avatar;
   return (
     <>
-      <div className="flex h-full min-h-screen flex-col gap-4">
-        <div className="flex flex-1 flex-col gap-4">
-          <Logo />
-          <Title />
-          <Form />
-          <CompletedTitle />
-          <Ticket
-            number={number}
-            username={username}
-            avatar={avatar}
-            name={name}
-          />
-        </div>
-        <Footer />
-      </div>
+      {!valid ? (
+        <PageTwo
+          email={email}
+          username={username}
+          number={number}
+          avatar={avatar}
+          name={name}
+        />
+      ) : (
+        <PageOne />
+      )}
     </>
   );
 }

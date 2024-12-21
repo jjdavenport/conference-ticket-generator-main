@@ -3,7 +3,7 @@ import logoIcon from "../assets/logo-full.svg";
 const Logo = () => {
   return (
     <>
-      <img src={logoIcon} />
+      <img className="w-1/2 object-contain" src={logoIcon} />
     </>
   );
 };
