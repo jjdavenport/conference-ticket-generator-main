@@ -13,7 +13,7 @@ function App() {
   const img = avatar;
   return (
     <>
-      {!valid ? (
+      {valid ? (
         <PageTwo
           email={email}
           username={username}

@@ -22,7 +22,7 @@ const Form = () => {
           type="text"
         />
         <button
-          className="bg-orange500 hover:bg-orange700 text-neutral900 rounded-xl p-3 text-lg font-extrabold transition-colors duration-300 ease-in-out"
+          className="focus:outline-offset-3 rounded-xl bg-orange500 p-3 text-lg font-extrabold text-neutral900 transition-all duration-300 ease-in-out hover:bg-orange700 hover:shadow-[0_4px_0_0_theme('colors.orange500')] focus:shadow-none focus:outline focus:outline-1 focus:outline-neutral0"
           type="submit"
         >
           Generate My Ticket

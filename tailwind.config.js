@@ -24,6 +24,9 @@ export default {
         top: "url('./src/assets/pattern-squiggly-line-top.svg')",
         bottom: "url('./src/assets/pattern-squiggly-line-bottom.svg')",
       },
+      outlineOffset: {
+        3: "3px",
+      },
     },
   },
   plugins: [],
