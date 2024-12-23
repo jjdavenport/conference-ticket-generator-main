@@ -1,7 +1,13 @@
+import fluid, { extract, screens } from "fluid-tailwind";
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{html,js,jsx}"],
+  content: {
+    files: ["./src/**/*.{html,js,jsx}"],
+    extract,
+  },
   theme: {
+    screens,
     extend: {
       fontFamily: {
         custom: ["inconsolata", "sans-serif"],
@@ -17,17 +23,10 @@ export default {
         gradientStart: "hsl(7, 86%, 67%)",
         gradientEnd: "hsl(0, 0%, 100%)",
       },
-      backgroundImage: {
-        mobile: "url('./src/assets/background-mobile.png')",
-        tablet: "url('./src/assets/background-tablet.png')",
-        desktop: "url('./src/assets/background-desktop.png')",
-        top: "url('./src/assets/pattern-squiggly-line-top.svg')",
-        bottom: "url('./src/assets/pattern-squiggly-line-bottom.svg')",
-      },
       outlineOffset: {
         3: "3px",
       },
     },
   },
-  plugins: [],
+  plugins: [fluid],
 };
