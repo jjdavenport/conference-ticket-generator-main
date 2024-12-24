@@ -1,7 +1,34 @@
+import { useState } from "react";
 import Input from "./input";
 import Upload from "./upload";
 
-const Form = () => {
+const Form = ({ avatar, setAvatar }) => {
+  const [uploaded, setUploaded] = useState(false);
+
+  const reset = () => {
+    setUploaded(false);
+    setAvatar(null);
+  };
+
+  const handleUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) {
+      console.log("No file selected");
+      return;
+    }
+    if (!["image/jpeg", "image/png"].includes(file.type)) {
+      console.log("Invalid file type");
+      return;
+    }
+    if (file.size > 500 * 1024) {
+      console.log("File too large");
+      return;
+    }
+    console.log("uploaded");
+    setUploaded(true);
+    setAvatar(URL.createObjectURL(file));
+  };
+
   return (
     <>
       <form
@@ -9,7 +36,15 @@ const Form = () => {
         noValidate
         onSubmit={(e) => e.preventDefault()}
       >
-        <Upload />
+        <label className="group flex w-full flex-col gap-2">
+          Upload Avatar
+          <Upload
+            uploaded={uploaded}
+            avatar={avatar}
+            reset={reset}
+            onChange={handleUpload}
+          />
+        </label>
         <Input placeholder="" label="Full Name" type="text" />
         <Input
           placeholder="example@email.com"

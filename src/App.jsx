@@ -22,7 +22,7 @@ function App() {
           name={name}
         />
       ) : (
-        <PageOne />
+        <PageOne setAvatar={setAvatar} avatar={avatar} />
       )}
     </>
   );
