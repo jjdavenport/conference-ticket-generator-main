@@ -3,7 +3,7 @@ import githubIcon from "../assets/icon-github.svg";
 
 const Ticket = ({ avatar, name, username, number }) => {
   return (
-    <div className="z-10 flex w-full gap-4 divide-x-2 divide-dashed rounded-lg bg-neutral700 bg-opacity-40 p-4">
+    <div className="bg-ticket z-10 flex w-full gap-4 divide-x-2 divide-dashed rounded-lg bg-neutral700 bg-opacity-40 bg-contain bg-no-repeat p-4">
       <div className="flex flex-col gap-4">
         <div className="flex items-start gap-2">
           <img className="w-8 object-contain pt-2" src={logoIcon} alt="Logo" />

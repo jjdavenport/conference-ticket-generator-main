@@ -3,11 +3,11 @@ import Input from "./input";
 import Upload from "./upload";
 
 const Form = ({ avatar, setAvatar }) => {
-  const [uploaded, setUploaded] = useState(false);
+  const [uploaded, setUploaded] = useState(true);
 
   const reset = () => {
-    setUploaded(false);
     setAvatar(null);
+    setTimeout(() => setUploaded(false), 0);
   };
 
   const handleUpload = (e) => {

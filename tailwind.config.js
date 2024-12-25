@@ -26,6 +26,9 @@ export default {
       outlineOffset: {
         3: "3px",
       },
+      backgroundImage: {
+        ticket: "url('../src/assets/pattern-ticket.svg')",
+      },
     },
   },
   plugins: [fluid],
