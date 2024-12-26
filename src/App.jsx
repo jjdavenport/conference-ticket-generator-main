@@ -1,14 +1,13 @@
 import { useState } from "react";
 import PageOne from "./pages/page-one";
 import PageTwo from "./pages/page-two";
-import avatarImg from "./assets/image-avatar.jpg";
 
 function App() {
   const [input, setInput] = useState({
-    avatar: avatarImg,
-    name: "Johnatan Kristof",
-    email: "johnatan@email.com",
-    username: "@johnatankristof",
+    avatar: null,
+    name: "",
+    email: "",
+    username: "",
     ticket: "#01609",
   });
   const [valid, setValid] = useState(false);
@@ -17,7 +16,7 @@ function App() {
       {valid ? (
         <PageTwo input={input} />
       ) : (
-        <PageOne setInput={setInput} input={input} />
+        <PageOne setValid={setValid} setInput={setInput} input={input} />
       )}
     </>
   );

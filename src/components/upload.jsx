@@ -17,7 +17,7 @@ const Upload = ({ onChange, uploaded, avatar, reset, error }) => {
               <div className="flex gap-4">
                 <button
                   onClick={reset}
-                  className="rounded-md bg-neutral700 bg-opacity-30 px-3 py-1 text-neutral300 underline hover:bg-opacity-60"
+                  className="rounded-md bg-neutral700 bg-opacity-30 px-3 py-1 text-neutral300 underline transition-colors duration-300 ease-in-out hover:bg-opacity-60"
                 >
                   Remove image
                 </button>
@@ -29,14 +29,14 @@ const Upload = ({ onChange, uploaded, avatar, reset, error }) => {
                 />
                 <button
                   onClick={() => fileInputRef.current.click()}
-                  className="rounded-md bg-neutral700 bg-opacity-30 px-3 py-1"
+                  className="rounded-md bg-neutral700 bg-opacity-30 px-3 py-1 transition-colors duration-300 ease-in-out hover:bg-opacity-60"
                 >
                   Change image
                 </button>
               </div>
             </div>
             <p
-              className={`${error === null ? "text-neutral300" : "text-orange700"} flex gap-2 text-xs transition-all duration-300 ease-in-out`}
+              className={`${error === null ? "text-neutral300" : "text-orange500"} flex gap-2 text-xs transition-all duration-300 ease-in-out`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ const Upload = ({ onChange, uploaded, avatar, reset, error }) => {
               >
                 <path
                   className={
-                    error === null ? "stroke-neutral300" : "stroke-orange700"
+                    error === null ? "stroke-neutral300" : "stroke-orange500"
                   }
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -56,7 +56,7 @@ const Upload = ({ onChange, uploaded, avatar, reset, error }) => {
                 <path fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
                 <path
                   className={
-                    error === null ? "stroke-neutral300" : "stroke-orange700"
+                    error === null ? "stroke-neutral300" : "stroke-orange500"
                   }
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -103,7 +103,7 @@ const Upload = ({ onChange, uploaded, avatar, reset, error }) => {
               >
                 <path
                   className={
-                    error === null ? "stroke-neutral300" : "stroke-orange700"
+                    error === null ? "stroke-neutral300" : "stroke-orange500"
                   }
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -112,7 +112,7 @@ const Upload = ({ onChange, uploaded, avatar, reset, error }) => {
                 <path fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
                 <path
                   className={
-                    error === null ? "stroke-neutral300" : "stroke-orange700"
+                    error === null ? "stroke-neutral300" : "stroke-orange500"
                   }
                   strokeLinecap="round"
                   strokeLinejoin="round"
