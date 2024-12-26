@@ -16,6 +16,7 @@ const Upload = ({ onChange, uploaded, avatar, reset, error }) => {
               />
               <div className="flex gap-4">
                 <button
+                  type="button"
                   onClick={reset}
                   className="rounded-md bg-neutral700 bg-opacity-30 px-3 py-1 text-neutral300 underline transition-colors duration-300 ease-in-out hover:bg-opacity-60"
                 >
@@ -28,6 +29,7 @@ const Upload = ({ onChange, uploaded, avatar, reset, error }) => {
                   type="file"
                 />
                 <button
+                  type="button"
                   onClick={() => fileInputRef.current.click()}
                   className="rounded-md bg-neutral700 bg-opacity-30 px-3 py-1 transition-colors duration-300 ease-in-out hover:bg-opacity-60"
                 >
@@ -74,6 +76,7 @@ const Upload = ({ onChange, uploaded, avatar, reset, error }) => {
           <label className="flex w-full flex-col gap-2">
             Upload Avatar
             <button
+              type="button"
               onClick={() => fileInputRef.current.click()}
               className="dashed flex cursor-pointer flex-col items-center gap-4 rounded-lg bg-neutral700 bg-opacity-30 p-6 backdrop-blur-sm transition-colors duration-300 ease-in-out hover:bg-opacity-60 focus:bg-opacity-30 focus:outline focus:outline-1 focus:outline-offset-3 focus:outline-neutral300"
             >

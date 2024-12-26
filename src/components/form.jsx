@@ -24,7 +24,6 @@ const Form = ({ input, setInput, setValid }) => {
       handleBlur("name", input.name);
       handleBlur("email", input.email);
       handleBlur("username", input.username);
-      handleUpload();
     }
   };
 
@@ -79,6 +78,7 @@ const Form = ({ input, setInput, setValid }) => {
       ...prev,
       upload: null,
     }));
+    setUploaded(true);
     setInput((prev) => ({
       ...prev,
       avatar: URL.createObjectURL(file),
