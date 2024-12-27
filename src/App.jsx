@@ -5,9 +5,9 @@ import PageTwo from "./pages/page-two";
 function App() {
   const [input, setInput] = useState({
     avatar: null,
-    name: "",
-    email: "",
-    username: "",
+    name: null,
+    email: null,
+    username: null,
     ticket: "#01609",
   });
   const [valid, setValid] = useState(false);

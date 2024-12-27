@@ -4,25 +4,32 @@ import Upload from "./upload";
 
 const Form = ({ input, setInput, setValid }) => {
   const [error, setError] = useState({
-    upload: null,
-    name: null,
-    email: null,
-    username: null,
+    upload: "",
+    name: "",
+    email: "",
+    username: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      input.avatar !== null &&
-      input.name !== null &&
-      input.email !== null &&
-      input.username !== null
+      error.upload === null &&
+      error.name === null &&
+      error.email === null &&
+      error.username === null
     ) {
       setValid(true);
     } else {
       handleBlur("name", input.name);
       handleBlur("email", input.email);
       handleBlur("username", input.username);
+
+      if (!input.avatar) {
+        setError((prev) => ({
+          ...prev,
+          upload: "Please upload an avatar.",
+        }));
+      }
     }
   };
 
@@ -85,7 +92,7 @@ const Form = ({ input, setInput, setValid }) => {
   return (
     <>
       <form
-        className="flex w-full flex-col gap-6 ~sm/md:~pb-10/0 md:max-w-[500px]"
+        className="flex w-full flex-col gap-4 ~sm/md:~pb-10/0 md:max-w-[31.25rem]"
         noValidate
         onSubmit={handleSubmit}
       >
