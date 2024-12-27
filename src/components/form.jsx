@@ -3,7 +3,6 @@ import Input from "./input";
 import Upload from "./upload";
 
 const Form = ({ input, setInput, setValid }) => {
-  const [uploaded, setUploaded] = useState(false);
   const [error, setError] = useState({
     upload: null,
     name: null,
@@ -48,7 +47,6 @@ const Form = ({ input, setInput, setValid }) => {
       ...prev,
       avatar: null,
     }));
-    setTimeout(() => setUploaded(false), 0);
   };
 
   const handleUpload = (e) => {
@@ -78,7 +76,6 @@ const Form = ({ input, setInput, setValid }) => {
       ...prev,
       upload: null,
     }));
-    setUploaded(true);
     setInput((prev) => ({
       ...prev,
       avatar: URL.createObjectURL(file),
@@ -93,7 +90,6 @@ const Form = ({ input, setInput, setValid }) => {
         onSubmit={handleSubmit}
       >
         <Upload
-          uploaded={uploaded}
           avatar={input.avatar}
           reset={handleRemove}
           onChange={handleUpload}

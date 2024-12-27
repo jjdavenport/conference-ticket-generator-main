@@ -1,11 +1,11 @@
 import uploadIcon from "../assets/icon-upload.svg";
 import { useRef } from "react";
 
-const Upload = ({ onChange, uploaded, avatar, reset, error }) => {
+const Upload = ({ onChange, avatar, reset, error }) => {
   const fileInputRef = useRef(null);
   return (
     <>
-      {uploaded ? (
+      {avatar !== null ? (
         <>
           <div className="flex w-full flex-col gap-2">
             <label>Upload Avatar</label>
