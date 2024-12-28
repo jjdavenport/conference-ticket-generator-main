@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Input from "./input";
 import Upload from "./upload";
+import SubmitButton from "./submit-button";
 
 const Form = ({ input, setInput, setValid }) => {
   const [error, setError] = useState({
@@ -57,7 +58,14 @@ const Form = ({ input, setInput, setValid }) => {
   };
 
   const handleUpload = (e) => {
-    const file = e.target.files[0];
+    e.preventDefault();
+    let file;
+    if (e.dataTransfer) {
+      file = e.dataTransfer.files[0];
+    } else if (e.target.files) {
+      file = e.target.files[0];
+    }
+
     if (!file) {
       setError((prev) => ({
         ...prev,
@@ -65,6 +73,7 @@ const Form = ({ input, setInput, setValid }) => {
       }));
       return;
     }
+
     if (!["image/jpeg", "image/png"].includes(file.type)) {
       setError((prev) => ({
         ...prev,
@@ -72,6 +81,7 @@ const Form = ({ input, setInput, setValid }) => {
       }));
       return;
     }
+
     if (file.size > 500 * 1024) {
       setError((prev) => ({
         ...prev,
@@ -79,10 +89,12 @@ const Form = ({ input, setInput, setValid }) => {
       }));
       return;
     }
+
     setError((prev) => ({
       ...prev,
       upload: null,
     }));
+
     setInput((prev) => ({
       ...prev,
       avatar: URL.createObjectURL(file),
@@ -135,12 +147,7 @@ const Form = ({ input, setInput, setValid }) => {
           value={input.username}
           onBlur={(e) => handleBlur("username", e.target.value)}
         />
-        <button
-          className="rounded-xl bg-orange500 p-3 text-lg font-extrabold text-neutral900 duration-300 ease-in-out hover:bg-orange700 hover:shadow-[0_4px_0_0_theme('colors.orange500')] hover:transition-all focus:shadow-none focus:outline focus:outline-1 focus:outline-offset-3 focus:outline-neutral0 focus:transition-colors"
-          type="submit"
-        >
-          Generate My Ticket
-        </button>
+        <SubmitButton />
       </form>
     </>
   );

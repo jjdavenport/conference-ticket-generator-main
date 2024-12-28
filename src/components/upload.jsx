@@ -1,24 +1,39 @@
 import uploadIcon from "../assets/icon-upload.svg";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const Upload = ({ onChange, avatar, reset, error }) => {
+  const [dragging, setDragging] = useState(false);
   const fileInputRef = useRef(null);
+  const handleDragEnter = (e) => {
+    e.preventDefault();
+    setDragging(true);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setDragging(true);
+  };
+
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    setDragging(false);
+  };
 
   return (
     <>
       {avatar ? (
         <div className="flex w-full flex-col gap-2">
           <label>Upload Avatar</label>
-          <div className="dashed flex cursor-pointer flex-col items-center gap-6 rounded-lg bg-neutral700 bg-opacity-30 p-6 backdrop-blur-sm transition-colors duration-300 ease-in-out focus:bg-opacity-30 focus:outline focus:outline-1 focus:outline-offset-3 focus:outline-neutral300">
+          <div className="dashed flex h-40 cursor-pointer flex-col items-center gap-4 rounded-lg bg-neutral700 bg-opacity-30 p-6 backdrop-blur-sm transition-colors duration-300 ease-in-out focus:bg-opacity-30 focus:outline focus:outline-1 focus:outline-offset-3 focus:outline-neutral300">
             <img
-              className="w-14 rounded-md object-contain outline outline-1 outline-neutral500"
+              className="w-16 rounded-md object-contain outline outline-1 outline-neutral500"
               src={avatar}
             />
             <div className="flex gap-4">
               <button
                 type="button"
                 onClick={reset}
-                className="rounded-md bg-neutral700 bg-opacity-30 px-3 py-1 text-neutral300 underline transition-colors duration-300 ease-in-out hover:bg-opacity-60"
+                className="rounded-md bg-neutral700 bg-opacity-30 px-3 py-1 text-base text-neutral300 underline transition-colors duration-300 ease-in-out hover:bg-opacity-60"
               >
                 Remove image
               </button>
@@ -31,7 +46,7 @@ const Upload = ({ onChange, avatar, reset, error }) => {
               <button
                 type="button"
                 onClick={() => fileInputRef.current.click()}
-                className="rounded-md bg-neutral700 bg-opacity-30 px-3 py-1 transition-colors duration-300 ease-in-out hover:bg-opacity-60"
+                className="rounded-md bg-neutral700 bg-opacity-30 px-3 py-1 text-base transition-colors duration-300 ease-in-out hover:bg-opacity-60"
               >
                 Change image
               </button>
@@ -71,8 +86,12 @@ const Upload = ({ onChange, avatar, reset, error }) => {
           Upload Avatar
           <button
             type="button"
+            onDragEnter={handleDragEnter}
+            onDragLeave={handleDragLeave}
+            onDragOver={handleDragOver}
+            onDrop={onChange}
             onClick={() => fileInputRef.current.click()}
-            className="dashed flex cursor-pointer flex-col items-center gap-4 rounded-lg bg-neutral700 bg-opacity-30 p-6 backdrop-blur-sm transition-colors duration-300 ease-in-out hover:bg-opacity-60 focus:bg-opacity-30 focus:outline focus:outline-1 focus:outline-offset-3 focus:outline-neutral300"
+            className={`${dragging ? "bg-opacity-60" : "bg-opacity-30"} dashed flex h-40 cursor-pointer flex-col items-center justify-center gap-4 rounded-lg bg-neutral700 p-6 backdrop-blur-sm transition-colors duration-300 ease-in-out hover:bg-opacity-60 focus:bg-opacity-30 focus:outline focus:outline-1 focus:outline-offset-3 focus:outline-neutral300`}
           >
             <input
               ref={fileInputRef}
