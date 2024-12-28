@@ -98,17 +98,12 @@ const useValidator = (input, setInput, setValid) => {
     }));
   };
 
-  const handleInputChange = (name, value) => {
-    setInput((prev) => ({ ...prev, [name]: value }));
-  };
-
   return {
     error,
     handleSubmit,
     handleBlur,
     handleRemove,
     handleUpload,
-    handleInputChange,
   };
 };
 

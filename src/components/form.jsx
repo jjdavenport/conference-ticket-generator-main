@@ -4,14 +4,8 @@ import Upload from "./upload";
 import SubmitButton from "./submit-button";
 
 const Form = ({ input, setInput, setValid }) => {
-  const {
-    error,
-    handleSubmit,
-    handleBlur,
-    handleRemove,
-    handleUpload,
-    handleInputChange,
-  } = useValidator(input, setInput, setValid);
+  const { error, handleSubmit, handleBlur, handleRemove, handleUpload } =
+    useValidator(input, setInput, setValid);
 
   return (
     <>
@@ -31,7 +25,9 @@ const Form = ({ input, setInput, setValid }) => {
           label="Full Name"
           type="text"
           error={error.name}
-          onChange={(e) => handleInputChange("name", e.target.value)}
+          onChange={(e) =>
+            setInput((prev) => ({ ...prev, name: e.target.value }))
+          }
           value={input.name}
           onBlur={(e) => handleBlur("name", e.target.value)}
         />
@@ -40,7 +36,9 @@ const Form = ({ input, setInput, setValid }) => {
           label="Email Address"
           type="email"
           error={error.email}
-          onChange={(e) => handleInputChange("email", e.target.value)}
+          onChange={(e) =>
+            setInput((prev) => ({ ...prev, email: e.target.value }))
+          }
           value={input.email}
           onBlur={(e) => handleBlur("email", e.target.value)}
         />
@@ -49,7 +47,9 @@ const Form = ({ input, setInput, setValid }) => {
           label="GitHub Username"
           type="text"
           error={error.username}
-          onChange={(e) => handleInputChange("username", e.target.value)}
+          onChange={(e) =>
+            setInput((prev) => ({ ...prev, username: e.target.value }))
+          }
           value={input.username}
           onBlur={(e) => handleBlur("username", e.target.value)}
         />
