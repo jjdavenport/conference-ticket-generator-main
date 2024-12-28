@@ -24,7 +24,7 @@ const Upload = ({ onChange, avatar, reset, error }) => {
       {avatar ? (
         <div className="flex w-full flex-col gap-2">
           <label>Upload Avatar</label>
-          <div className="dashed flex h-40 cursor-pointer flex-col items-center gap-4 rounded-lg bg-neutral700 bg-opacity-30 p-6 backdrop-blur-sm transition-colors duration-300 ease-in-out focus:bg-opacity-30 focus:outline focus:outline-1 focus:outline-offset-3 focus:outline-neutral300">
+          <div className="dashed flex h-36 cursor-pointer flex-col items-center gap-4 rounded-xl bg-neutral700 bg-opacity-30 p-6 backdrop-blur-sm transition-colors duration-300 ease-in-out focus:bg-opacity-30 focus:outline focus:outline-1 focus:outline-offset-3 focus:outline-neutral300">
             <img
               className="w-16 rounded-md object-contain outline outline-1 outline-neutral500"
               src={avatar}
@@ -91,7 +91,7 @@ const Upload = ({ onChange, avatar, reset, error }) => {
             onDragOver={handleDragOver}
             onDrop={onChange}
             onClick={() => fileInputRef.current.click()}
-            className={`${dragging ? "bg-opacity-60" : "bg-opacity-30"} dashed flex h-40 cursor-pointer flex-col items-center justify-center gap-4 rounded-lg bg-neutral700 p-6 backdrop-blur-sm transition-colors duration-300 ease-in-out hover:bg-opacity-60 focus:bg-opacity-30 focus:outline focus:outline-1 focus:outline-offset-3 focus:outline-neutral300`}
+            className={`${dragging ? "bg-opacity-60" : "bg-opacity-30"} dashed flex h-36 cursor-pointer flex-col items-center justify-center gap-4 rounded-xl bg-neutral700 p-6 backdrop-blur-sm transition-colors duration-300 ease-in-out hover:bg-opacity-60 focus:bg-opacity-30 focus:outline focus:outline-1 focus:outline-offset-3 focus:outline-neutral300`}
           >
             <input
               ref={fileInputRef}

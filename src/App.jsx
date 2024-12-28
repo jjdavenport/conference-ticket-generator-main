@@ -1,16 +1,9 @@
-import { useState } from "react";
+import useForm from "./hooks/useForm";
 import PageOne from "./pages/page-one";
 import PageTwo from "./pages/page-two";
 
 function App() {
-  const [input, setInput] = useState({
-    avatar: null,
-    name: null,
-    email: null,
-    username: null,
-    ticket: "#01609",
-  });
-  const [valid, setValid] = useState(false);
+  const { input, setInput, valid, setValid } = useForm();
   return (
     <>
       {valid ? (
