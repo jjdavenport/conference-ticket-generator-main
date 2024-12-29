@@ -1,35 +1,25 @@
 import uploadIcon from "../assets/icon-upload.svg";
-import { useRef, useState } from "react";
+import useDrop from "../hooks/useDrop";
 
 const Upload = ({ onChange, avatar, reset, error }) => {
-  const [dragging, setDragging] = useState(false);
-  const fileInputRef = useRef(null);
-  const handleDragEnter = (e) => {
-    e.preventDefault();
-    setDragging(true);
-  };
-
-  const handleDragOver = (e) => {
-    e.preventDefault();
-    setDragging(true);
-  };
-
-  const handleDragLeave = (e) => {
-    e.preventDefault();
-    setDragging(false);
-  };
-
+  const {
+    fileInputRef,
+    handleDragEnter,
+    handleDragOver,
+    handleDragLeave,
+    dragging,
+  } = useDrop();
   return (
     <>
       {avatar ? (
         <div className="flex w-full flex-col gap-2">
           <label>Upload Avatar</label>
-          <div className="dashed flex h-36 cursor-pointer flex-col items-center gap-4 rounded-xl bg-neutral700 bg-opacity-30 p-6 backdrop-blur-sm transition-colors duration-300 ease-in-out focus:bg-opacity-30 focus:outline focus:outline-1 focus:outline-offset-3 focus:outline-neutral300">
+          <div className="dashed h-30 flex cursor-pointer flex-col items-center justify-center gap-4 rounded-xl bg-neutral700 bg-opacity-30 p-5 backdrop-blur-sm transition-colors duration-300 ease-in-out focus:bg-opacity-30 focus:outline focus:outline-1 focus:outline-offset-3 focus:outline-neutral300">
             <img
-              className="w-16 rounded-md object-contain outline outline-1 outline-neutral500"
+              className="w-14 rounded-xl object-contain outline outline-1 outline-neutral500"
               src={avatar}
             />
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               <button
                 type="button"
                 onClick={reset}
@@ -91,7 +81,7 @@ const Upload = ({ onChange, avatar, reset, error }) => {
             onDragOver={handleDragOver}
             onDrop={onChange}
             onClick={() => fileInputRef.current.click()}
-            className={`${dragging ? "bg-opacity-60" : "bg-opacity-30"} dashed flex h-36 cursor-pointer flex-col items-center justify-center gap-4 rounded-xl bg-neutral700 p-6 backdrop-blur-sm transition-colors duration-300 ease-in-out hover:bg-opacity-60 focus:bg-opacity-30 focus:outline focus:outline-1 focus:outline-offset-3 focus:outline-neutral300`}
+            className={`${dragging ? "bg-opacity-60" : "bg-opacity-30"} dashed h-30 flex cursor-pointer flex-col items-center justify-center gap-4 rounded-xl bg-neutral700 p-6 backdrop-blur-sm transition-colors duration-300 ease-in-out hover:bg-opacity-60 focus:bg-opacity-30 focus:outline focus:outline-1 focus:outline-offset-3 focus:outline-neutral300`}
           >
             <input
               ref={fileInputRef}
@@ -100,7 +90,7 @@ const Upload = ({ onChange, avatar, reset, error }) => {
               type="file"
             />
             <img
-              className="rounded-lg bg-neutral700 bg-opacity-80 p-2 outline outline-1 outline-neutral500 group-hover:bg-opacity-100 group-focus:bg-opacity-80"
+              className="rounded-xl bg-neutral700 bg-opacity-60 p-2 outline outline-1 outline-neutral700 backdrop-blur-sm group-hover:bg-opacity-100 group-focus:bg-opacity-80"
               src={uploadIcon}
             />
             <p className="text-lg text-neutral300">

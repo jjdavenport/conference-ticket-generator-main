@@ -3,33 +3,41 @@ import githubIcon from "../assets/icon-github.svg";
 
 const Ticket = ({ input }) => {
   return (
-    <div className="z-10 flex w-full gap-4 rounded-lg bg-neutral700 bg-opacity-40 bg-ticket bg-contain bg-no-repeat p-4">
-      <div className="flex flex-col gap-4">
-        <div className="flex items-start gap-2">
-          <img className="w-8 object-contain pt-2" src={logoIcon} alt="Logo" />
-          <div className="flex flex-col gap-1">
-            <span className="text-2xl font-bold">Coding Conf</span>
-            <p className="text-sm text-neutral300">Jan 31, 2025 / Austin, TX</p>
+    <div className="flex aspect-video w-full min-w-[18rem] max-w-[25rem] items-center justify-between bg-ticket bg-contain bg-center bg-no-repeat backdrop-blur-md ~sm/md:~py-4/7 md:max-w-[36rem]">
+      <div className="flex h-full flex-col justify-between p-3 md:p-6">
+        <div className="flex items-start ~sm/md:~gap-2/4">
+          <img
+            className="object-contain pt-2 ~sm/md:~w-8/10"
+            src={logoIcon}
+            alt="Logo"
+          />
+          <div className="flex flex-col ~sm/md:~gap-1/2">
+            <span className="text-2xl font-bold md:text-4xl">Coding Conf</span>
+            <p className="text-sm text-neutral300 md:text-base">
+              Jan 31, 2025 / Austin, TX
+            </p>
           </div>
         </div>
-        <div className="flex gap-2">
+        <div className="flex ~sm/md:~gap-2/4 md:items-center">
           <img
-            className="w-12 rounded-lg object-contain"
+            className="w-12 rounded-xl object-contain md:w-20"
             src={input.avatar}
             alt="Avatar"
           />
           <div className="flex flex-col">
-            <span className="text-lg">{input.name}</span>
-            <div className="flex items-center gap-1">
+            <span className="text-lg md:text-3xl">{input.name}</span>
+            <div className="flex items-center ~sm/md:~gap-1/2">
               <img src={githubIcon} alt="GitHub" />
-              <span className="text-sm text-neutral300">{input.username}</span>
+              <span className="text-sm text-neutral300 md:text-base">
+                {input.username}
+              </span>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex items-center">
-        <span className="vertical-rl">
-          #{input.ticket.toString().padStart(2, "0")}
+      <div className="flex items-center p-3 md:p-8">
+        <span className="text-neutral500 vertical-rl ~sm/md:~text-2xl/3xl">
+          {input.ticket}
         </span>
       </div>
     </div>

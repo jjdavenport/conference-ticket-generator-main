@@ -1,17 +1,17 @@
 const CompletedTitle = ({ name, email }) => {
   return (
     <>
-      <div className="flex flex-col gap-6 text-center">
-        <h2 className="inline text-3xl font-extrabold">
+      <div className="flex flex-col items-center gap-6 text-center">
+        <h2 className="inline font-extrabold leading-tight ~sm/md:~text-3xl/5xl">
           Congrats,
-          <span className="from-gradientStart to-gradientEnd bg-gradient-to-r bg-clip-text pl-1 text-transparent">
+          <span className="bg-gradient-to-r from-gradientStart to-gradientEnd bg-clip-text pl-1 text-transparent">
             {name}
           </span>
           ! Your ticket is ready.
         </h2>
-        <p className="text-neutral300 inline text-lg">
-          We've emailed your ticket to
-          <span className="text-orange500 pl-1">{email}</span> and will send
+        <p className="inline text-neutral300 ~sm/md:~text-lg/xl md:w-7/12">
+          We've emailed your ticket to <br></br>
+          <span className="pl-2 text-orange500">{email}</span> and will send
           updates in the run up to the event.
         </p>
       </div>
