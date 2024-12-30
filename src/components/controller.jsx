@@ -14,8 +14,9 @@ const Controller = ({ input, setInput, setValid, valid }) => {
           <AnimatePresence mode="wait">
             {!valid ? (
               <motion.div
+                key="form"
                 initial={{ x: 0 }}
-                exit={{ x: "-100%" }}
+                exit={{ x: "-150%" }}
                 transition={{ duration: 0.5 }}
                 className="flex flex-1 flex-col items-center px-4 py-10 text-xl ~sm/md:~gap-8/10 md:max-w-screen-md"
               >
@@ -25,7 +26,8 @@ const Controller = ({ input, setInput, setValid, valid }) => {
               </motion.div>
             ) : (
               <motion.div
-                initial={{ x: "100%" }}
+                key="ticket"
+                initial={{ x: "150%" }}
                 animate={{ x: 0 }}
                 transition={{ duration: 0.5 }}
                 className="flex flex-1 flex-col items-center px-4 py-10 text-xl ~sm/md:~gap-8/10 md:max-w-screen-md"
