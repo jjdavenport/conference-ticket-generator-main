@@ -3,7 +3,7 @@ import githubIcon from "../assets/icon-github.svg";
 
 const Ticket = ({ input }) => {
   return (
-    <div className="flex aspect-video w-full min-w-[18rem] max-w-[25rem] items-center justify-between bg-ticket bg-contain bg-center bg-no-repeat backdrop-blur-md ~sm/md:~py-4/7 md:max-w-[36rem]">
+    <div className="flex aspect-video w-full min-w-[18rem] max-w-[25rem] items-center justify-between bg-ticket bg-contain bg-center bg-no-repeat ~sm/md:~py-4/7 md:max-w-[36rem] md:backdrop-blur-md">
       <div className="flex h-full flex-col justify-between p-3 md:p-6">
         <div className="flex items-start ~sm/md:~gap-2/4">
           <img
